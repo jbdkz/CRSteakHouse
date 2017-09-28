@@ -8,20 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		B1E25D741F6CD34100C01166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E25D731F6CD34100C01166 /* AppDelegate.swift */; };
-		B1E25D761F6CD34100C01166 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E25D751F6CD34100C01166 /* ViewController.swift */; };
 		B1E25D791F6CD34100C01166 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E25D771F6CD34100C01166 /* Main.storyboard */; };
 		B1E25D7B1F6CD34200C01166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E25D7A1F6CD34200C01166 /* Assets.xcassets */; };
 		B1E25D7E1F6CD34200C01166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E25D7C1F6CD34200C01166 /* LaunchScreen.storyboard */; };
+		B1E25D861F6CD3DE00C01166 /* ResForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E25D851F6CD3DE00C01166 /* ResForm.swift */; };
+		B1E25D881F6CD40700C01166 /* TableForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E25D871F6CD40700C01166 /* TableForm.swift */; };
+		B1E25D8A1F6CD50E00C01166 /* DBAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E25D891F6CD50E00C01166 /* DBAccess.swift */; };
+		B1E25D8D1F6CD70C00C01166 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E25D8C1F6CD70C00C01166 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B1E25D701F6CD34100C01166 /* CattleRustlerSteakHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CattleRustlerSteakHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E25D731F6CD34100C01166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1E25D751F6CD34100C01166 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1E25D781F6CD34100C01166 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1E25D7A1F6CD34200C01166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1E25D7D1F6CD34200C01166 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1E25D7F1F6CD34200C01166 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E25D851F6CD3DE00C01166 /* ResForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResForm.swift; sourceTree = "<group>"; };
+		B1E25D871F6CD40700C01166 /* TableForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableForm.swift; sourceTree = "<group>"; };
+		B1E25D891F6CD50E00C01166 /* DBAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAccess.swift; sourceTree = "<group>"; };
+		B1E25D8C1F6CD70C00C01166 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B1E25D8E1F6CD7B900C01166 /* CattleRustlerSteakHouse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CattleRustlerSteakHouse-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E25D8D1F6CD70C00C01166 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				B1E25D721F6CD34100C01166 /* CattleRustlerSteakHouse */,
 				B1E25D711F6CD34100C01166 /* Products */,
+				B1E25D8B1F6CD70C00C01166 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +64,24 @@
 			isa = PBXGroup;
 			children = (
 				B1E25D731F6CD34100C01166 /* AppDelegate.swift */,
-				B1E25D751F6CD34100C01166 /* ViewController.swift */,
+				B1E25D851F6CD3DE00C01166 /* ResForm.swift */,
+				B1E25D871F6CD40700C01166 /* TableForm.swift */,
+				B1E25D891F6CD50E00C01166 /* DBAccess.swift */,
+				B1E25D8E1F6CD7B900C01166 /* CattleRustlerSteakHouse-Bridging-Header.h */,
 				B1E25D771F6CD34100C01166 /* Main.storyboard */,
 				B1E25D7A1F6CD34200C01166 /* Assets.xcassets */,
 				B1E25D7C1F6CD34200C01166 /* LaunchScreen.storyboard */,
 				B1E25D7F1F6CD34200C01166 /* Info.plist */,
 			);
 			path = CattleRustlerSteakHouse;
+			sourceTree = "<group>";
+		};
+		B1E25D8B1F6CD70C00C01166 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1E25D8C1F6CD70C00C01166 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +116,7 @@
 				TargetAttributes = {
 					B1E25D6F1F6CD34100C01166 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,7 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E25D761F6CD34100C01166 /* ViewController.swift in Sources */,
+				B1E25D861F6CD3DE00C01166 /* ResForm.swift in Sources */,
+				B1E25D8A1F6CD50E00C01166 /* DBAccess.swift in Sources */,
+				B1E25D881F6CD40700C01166 /* TableForm.swift in Sources */,
 				B1E25D741F6CD34100C01166 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,10 +283,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CattleRustlerSteakHouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jdiczhazy.CattleRustlerSteakHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CattleRustlerSteakHouse-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,10 +298,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CattleRustlerSteakHouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jdiczhazy.CattleRustlerSteakHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CattleRustlerSteakHouse-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
