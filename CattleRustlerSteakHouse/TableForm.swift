@@ -62,7 +62,6 @@ class TableForm: UIViewController {
        let arrayOutput: [String]
        arrayOutput = DBAccess.readRecord(ROW: i)
        if arrayOutput[1] != "E" {
-                  print(i)
                 switch i {
                         case 1:
                             oneLabel.backgroundColor = UIColor.red

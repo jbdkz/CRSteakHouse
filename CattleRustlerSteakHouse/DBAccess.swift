@@ -34,25 +34,20 @@ class DBAccess {
     //Populate database table with 20 empty table entries if they do not alreay exist
     class func popDB(){
         for _  in 1...10 {
-                  let message  = DBAccess.createRecord(resname: "E", resnumber: "0", smoking: true)
-                  print(message)
-              }
+                  DBAccess.createRecord(resname: "E", resnumber: "0", smoking: true)
+                }
         for _  in 1...10 {
-                 let message  = DBAccess.createRecord(resname: "E", resnumber: "0", smoking: false)
-                 print(message)
+                 DBAccess.createRecord(resname: "E", resnumber: "0", smoking: false)
                 }
             }
     
-
     //Create record function
-    class func createRecord(resname: String, resnumber: String, smoking: Bool) -> String{
+    class func createRecord(resname: String, resnumber: String, smoking: Bool){
         var database:OpaquePointer? = nil
         let result = sqlite3_open(dataFilePath(), &database)
-        var message: String = ""
         if result != SQLITE_OK {
             sqlite3_close(database)
             print("Failed to open database")
-            message = "Failed to open database"
         }
         
         let insert:String = "INSERT INTO CRSteakHouse (ResName,ResNumber,Smoking)" + " VALUES ('\(resname)','\(resnumber)','\(smoking)');"
@@ -61,15 +56,12 @@ class DBAccess {
         if sqlite3_prepare_v2(database, insert, -1, &statement, nil) == SQLITE_OK {
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Record Created")
-                message = "Record Created"
-            } else {
-                print("Record NOT Created")
-                message = "Record NOT Created"
-            }
+                } else {
+                 print("Record NOT Created")
+             }
             sqlite3_finalize(statement)
         }
         sqlite3_close(database)
-        return message
     }
     
     //Read record function
@@ -87,13 +79,12 @@ class DBAccess {
         if result != SQLITE_OK {
             sqlite3_close(database)
             print("Failed to open database")
-            message = "Failed to open database"
         }
         
         let query = "SELECT ROW, ResName, ResNumber, Smoking FROM CRSteakHouse WHERE ROW = '\(ROW)'"
         var statement:OpaquePointer? = nil
         if sqlite3_prepare_v2(database, query, -1, &statement, nil) == SQLITE_OK {
-            message = "Record NOT Found"
+           message = "Record NOT Found"
             
             myArray.insert ("", at: 0)
             myArray.insert ("", at: 1)
@@ -113,7 +104,7 @@ class DBAccess {
                 fieldResNumber = String(cString:(rowData1!))
                 fieldSmoking = String(cString:(rowData2!))
                 
-                message = "Record Found"
+              message = "Record Found"
                 
                 myArray.insert (fieldRow, at: 0)
                 myArray.insert (fieldResName, at: 1)
@@ -155,14 +146,12 @@ class DBAccess {
     }
     
     //Update record function
-    class func updateRecord(row: Int, resname: String, resnumber: String) -> String{
+    class func updateRecord(row: Int, resname: String, resnumber: String){
         var database:OpaquePointer? = nil
         let result = sqlite3_open(dataFilePath(), &database)
-        var message: String = ""
         if result != SQLITE_OK {
             sqlite3_close(database)
             print("Failed to open database")
-            message = "Failed to open database"
         }
     
         let update:String = "UPDATE CRSteakHouse SET ResName='\(resname)',ResNumber='\(resnumber)' WHERE row='\(row)'"
@@ -171,15 +160,12 @@ class DBAccess {
         if sqlite3_prepare_v2(database, update, -1, &statement, nil) == SQLITE_OK {
             if sqlite3_step(statement) == SQLITE_DONE {
                 print("Sucessfully updated row.")
-                message = "Record Updated"
             } else {
                 print("Could not update row.")
-                message = "Record NOT Updated"
             }
             sqlite3_finalize(statement)
         }
         sqlite3_close(database)
-        return message
     }
     
     

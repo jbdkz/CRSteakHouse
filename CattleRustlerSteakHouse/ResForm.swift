@@ -47,8 +47,7 @@ class ResForm: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
                 if resNumTxt.text != ""{
                       let resNum = resNumTxt.text
                     if resNum == "1" || resNum == "2" || resNum == "3" || resNum == "4" {
-                       let message = DBAccess.updateRecord(row: Int(selected)!, resname: (resNameTxt.text)!, resnumber: (resNumTxt.text)!)
-                       print(message)
+                       DBAccess.updateRecord(row: Int(selected)!, resname: (resNameTxt.text)!, resnumber: (resNumTxt.text)!)
                        let inputStr = "A Reservation has been make for Table " + selected
                        alert(title: "Reservation Confirmation", input: inputStr)
                        hideButtons()
@@ -85,10 +84,9 @@ class ResForm: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let confirmAction = UIAlertAction(
         title: "OK", style: UIAlertActionStyle.destructive) { (action) in
             //Perform cancellation
-            let message = DBAccess.updateRecord(row: Int(self.selected)!, resname: "E", resnumber: "0")
+            DBAccess.updateRecord(row: Int(self.selected)!, resname: "E", resnumber: "0")
             self.resNameTxt.text = "E"
             self.resNumTxt.text = "0"
-            print(message)
             self.hideButtons()
         }
         
@@ -119,8 +117,7 @@ class ResForm: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         title: "OK", style: UIAlertActionStyle.destructive) { (action) in
             //Cancel ALL Reservations
             for i  in 1...20 {
-                let message  = DBAccess.updateRecord(row: (i),resname: "E", resnumber: "0")
-                print(message)
+                DBAccess.updateRecord(row: (i),resname: "E", resnumber: "0")
             }
             self.resNameTxt.text = "E"
             self.resNumTxt.text = "0"
